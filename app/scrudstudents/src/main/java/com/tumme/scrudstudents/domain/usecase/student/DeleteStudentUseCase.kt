@@ -1,3 +1,4 @@
+// These classes contain the specific business logic for each student operation.
 package com.tumme.scrudstudents.domain.usecase.student
 
 import com.tumme.scrudstudents.data.local.model.StudentEntity

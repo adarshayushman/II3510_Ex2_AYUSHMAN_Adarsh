@@ -1,3 +1,4 @@
+// Interface for database operations (CRUD). It translates Kotlin functions into SQL queries.
 package com.tumme.scrudstudents.data.local.dao
 
 import androidx.room.*

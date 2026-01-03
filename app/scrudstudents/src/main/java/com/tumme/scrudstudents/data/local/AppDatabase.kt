@@ -10,7 +10,7 @@ import com.tumme.scrudstudents.data.local.model.StudentEntity
 import com.tumme.scrudstudents.data.local.model.CourseEntity
 import com.tumme.scrudstudents.data.local.model.SubscribeEntity
 
-@Database(entities = [StudentEntity::class, CourseEntity::class, SubscribeEntity::class], version = 1)
+@Database(entities = [StudentEntity::class, CourseEntity::class, SubscribeEntity::class], version = 1, exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun studentDao(): StudentDao

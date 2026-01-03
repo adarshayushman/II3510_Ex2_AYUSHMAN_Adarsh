@@ -15,15 +15,36 @@ import androidx.hilt.navigation.compose.hiltViewModel
 fun StudentListScreen(
     viewModel: StudentListViewModel = hiltViewModel(),
     onNavigateToForm: () -> Unit = {},
-    onNavigateToDetail: (Int) -> Unit = {}
+    onNavigateToDetail: (Int) -> Unit = {},
+    // ADD THESE TWO PARAMETERS
+    onNavigateToCourses: () -> Unit = {},
+    onNavigateToSubscriptions: () -> Unit = {}
 ) {
     val students by viewModel.students.collectAsState()
-    //val scaffoldState = rememberScaffoldState()
     val coroutineScope = rememberCoroutineScope()
 
     Scaffold(
         topBar = {
-            TopAppBar(title = { Text("Students") })
+            TopAppBar(title = { Text("University Management") })
+        },
+        // ADD THIS BOTTOM BAR
+        bottomBar = {
+            BottomAppBar {
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceEvenly
+                ) {
+                    TextButton(onClick = { /* Already here */ }) {
+                        Text("Students")
+                    }
+                    TextButton(onClick = onNavigateToCourses) {
+                        Text("Courses")
+                    }
+                    TextButton(onClick = onNavigateToSubscriptions) {
+                        Text("Subscriptions")
+                    }
+                }
+            }
         },
         floatingActionButton = {
             FloatingActionButton(onClick = onNavigateToForm) {
@@ -45,10 +66,10 @@ fun StudentListScreen(
                 items(students) { student ->
                     StudentRow(
                         student = student,
-                        onEdit = { /* navigate to form prefilled (not implemented here) */ },
+                        onEdit = { /* ... */ },
                         onDelete = { viewModel.deleteStudent(student) },
                         onView = { onNavigateToDetail(student.idStudent) },
-                        onShare = { /* share intent */ }
+                        onShare = { /* ... */ }
                     )
                 }
             }

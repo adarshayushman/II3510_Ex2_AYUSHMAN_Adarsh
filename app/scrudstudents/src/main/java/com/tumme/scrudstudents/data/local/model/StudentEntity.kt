@@ -1,3 +1,4 @@
+// This defines the Student table in Room database. It contains id, name, birth date, and gender.
 package com.tumme.scrudstudents.data.local.model
 
 import androidx.room.Entity

@@ -1,3 +1,4 @@
+// This class acts as a single source of truth, managing data flow between the DAO and the UseCases.
 package com.tumme.scrudstudents.data.repository
 
 import com.tumme.scrudstudents.data.local.dao.CourseDao
